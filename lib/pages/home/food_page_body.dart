@@ -39,6 +39,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // slider section
         SizedBox(
           height: Dimentions.pageView,
           // color: Colors.redAccent,
@@ -49,6 +50,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 return _buildPageItem(position);
               }),
         ),
+        // Dot section
         DotsIndicator(
           dotsCount: 5,
           position: _currentPageVal,
@@ -60,6 +62,106 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 borderRadius: BorderRadius.circular(5.0)),
           ),
         ),
+        // Popular sections
+        SizedBox(
+          height: Dimentions.height30,
+        ),
+        Container(
+          margin: EdgeInsets.only(left: Dimentions.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: 'Popular'),
+              SizedBox(width: Dimentions.width10),
+              Container(
+                margin: EdgeInsets.only(bottom: 2),
+                child: BigText(text: ".", color: Colors.black26),
+              ),
+              SizedBox(width: Dimentions.width10),
+              SmallText(text: "Food Pairing"),
+            ],
+          ),
+        ),
+        SizedBox(height: Dimentions.height30),
+        ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 10,
+          itemBuilder: ((context, index) {
+            return Container(
+              margin: EdgeInsets.only(
+                left: Dimentions.width20,
+                right: Dimentions.width20,
+                bottom: Dimentions.height10,
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    height: Dimentions.listViewImgSize,
+                    width: Dimentions.listViewImgSize,
+                    decoration: BoxDecoration(
+                      color: Colors.black12,
+                      image: const DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage("assets/images/food1.png"),
+                      ),
+                      borderRadius: BorderRadius.circular(Dimentions.radius15),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: Dimentions.listViewTxtContenSize,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(Dimentions.radius15),
+                          bottomRight: Radius.circular(Dimentions.radius15),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: Dimentions.height10,
+                          right: Dimentions.height10,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            BigText(
+                                text: "Nutritians Fruits meal in Bangladesh"),
+                            SizedBox(height: Dimentions.height10),
+                            SmallText(text: "With Bangladeshi test"),
+                            SizedBox(height: Dimentions.height10),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const [
+                                IconAndTextWidget(
+                                  icon: Icons.circle_sharp,
+                                  text: "Normal",
+                                  iconColor: AppColors.iconColor1,
+                                ),
+                                IconAndTextWidget(
+                                  icon: Icons.location_on,
+                                  text: "1.7km",
+                                  iconColor: AppColors.mainColor,
+                                ),
+                                IconAndTextWidget(
+                                  icon: Icons.access_time_rounded,
+                                  text: "35min",
+                                  iconColor: AppColors.iconColor2,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }),
+        )
       ],
     );
   }
@@ -117,8 +219,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             child: Container(
               height: Dimentions.pageViewTextController,
               margin: EdgeInsets.only(
-                left: Dimentions.width20,
-                right: Dimentions.width20,
+                left: Dimentions.height30,
+                right: Dimentions.height30,
                 bottom: Dimentions.height10,
               ),
               decoration: BoxDecoration(
@@ -191,7 +293,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           iconColor: AppColors.iconColor2,
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),

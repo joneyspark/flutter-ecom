@@ -1,4 +1,4 @@
-import 'package:flut_e_shop/home/main_food_page.dart';
+import 'package:flut_e_shop/pages/home/main_food_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
