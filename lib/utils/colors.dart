@@ -9,4 +9,5 @@ class AppColors {
   static const Color buttonBgColor = Color(0xFFf7f6f4);
   static const Color signColor = Color(0xFFa9a29f);
   static const Color titleColor = Color(0xFF5c524f);
+  // static const Color paraColor = Color.fromARGB(255, 44, 44, 44);
 }
